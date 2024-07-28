@@ -25,6 +25,7 @@ public class Bullet : GameUnit
         transform.position = newPosition;
         transform.Rotate(Vector3.down, rotationSpeed * Time.deltaTime, Space.World);
         Invoke("OnDespawn", time);
+        transform.rotation = Quaternion.Euler(90, transform.rotation.eulerAngles.y, 0);
     }
     public void Fire(Vector3 start, Vector3 targetPosition)
     {
