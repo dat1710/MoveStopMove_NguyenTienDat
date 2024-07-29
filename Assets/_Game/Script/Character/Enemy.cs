@@ -11,10 +11,16 @@ public class Enemy : Character
 
     private Vector3 destPoint;
     private bool walkPointSet;
+    private GameManager gameManager;
 
     private void Start()
     {
+        Invoke("FindGameManager", 0.6f);
         RandomSkin();
+    }
+    private void Find()
+    {
+        gameManager = FindObjectOfType<GameManager>();
     }
     private void Update()
     {
@@ -87,5 +93,11 @@ public class Enemy : Character
         SkinnedMeshRenderer skinnedMeshRenderer = pantPoint.GetComponent<SkinnedMeshRenderer>();
         skinnedMeshRenderer.material = randomPant;
     }
-    
+    void OnDestroy()
+    {
+        if (gameManager != null)
+        {
+            gameManager.BotDestroyed();
+        }
+    }
 }

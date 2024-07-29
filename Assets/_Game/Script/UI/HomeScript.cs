@@ -13,7 +13,7 @@ public class HomeScript : MonoBehaviour
     [SerializeField] private Canvas canvasHome;
     [SerializeField] private Canvas canvasShopWeapon;
     [SerializeField] private Canvas canvasMove;
-
+    [SerializeField] private GameObject gameManager;
     private void Start()
     {
         BtnPlay.onClick.AddListener(StartGame);
@@ -21,6 +21,7 @@ public class HomeScript : MonoBehaviour
     }
     void StartGame()
     {
+        Invoke("StartGameManager", 0.5f);
         player.gameObject.SetActive(true);
         levelManager.gameObject.SetActive(true);
         canvasMove.gameObject.SetActive(true);
@@ -30,5 +31,9 @@ public class HomeScript : MonoBehaviour
     {
         canvasHome.gameObject.SetActive(false);
         canvasShopWeapon.gameObject.SetActive(true);
+    }
+    void StartGameManager()
+    {
+        gameManager.SetActive(true);
     }
 }
