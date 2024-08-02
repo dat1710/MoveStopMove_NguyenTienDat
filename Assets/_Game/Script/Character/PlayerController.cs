@@ -62,6 +62,11 @@ public class PlayerController : Character
         }
         currentWeapon = Instantiate(newWeaponData.weaponPrefab, weaponPoint.transform.position, weaponPoint.transform.rotation);
         currentWeapon.transform.parent = weaponPoint.transform;
+        currentWeapon.transform.localScale *= 3;
         currentWeaponData = newWeaponData;
+    }
+    public void EquipItem(GameObject newGameObject)
+    {
+
     }
 }

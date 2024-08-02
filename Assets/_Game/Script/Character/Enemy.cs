@@ -93,11 +93,4 @@ public class Enemy : Character
         SkinnedMeshRenderer skinnedMeshRenderer = pantPoint.GetComponent<SkinnedMeshRenderer>();
         skinnedMeshRenderer.material = randomPant;
     }
-    void OnDestroy()
-    {
-        if (gameManager != null)
-        {
-            gameManager.BotDestroyed();
-        }
-    }
 }

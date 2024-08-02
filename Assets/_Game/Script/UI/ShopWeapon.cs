@@ -4,7 +4,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopItem : MonoBehaviour
+public class ShopWeapon : MonoBehaviour
 {
     public Button buyButton;
     public WeaponData weaponData;
@@ -14,7 +14,7 @@ public class ShopItem : MonoBehaviour
     private void Start()
     {
         buyButton.onClick.AddListener(OnBuyButtonClicked);
-        buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy"; // Đặt văn bản ban đầu của nút thành "Buy"
+        buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Buy";
     }
 
     private void OnBuyButtonClicked()
@@ -22,12 +22,12 @@ public class ShopItem : MonoBehaviour
         if (isEquipped)
         {
             UnequipItem();
-            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Equip"; // Thay đổi văn bản của nút thành "Equip"
+            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Equip";
         }
         else
         {
-            player.EquipItem(weaponData); // Trang bị mặt hàng cho nhân vật
-            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Unequip"; // Thay đổi văn bản của nút thành "Unequip"
+            player.EquipItem(weaponData);
+            buyButton.GetComponentInChildren<TextMeshProUGUI>().text = "Unequip";
         }
 
         isEquipped = !isEquipped;
@@ -35,7 +35,6 @@ public class ShopItem : MonoBehaviour
 
     private void UnequipItem()
     {
-        // Code xử lý khi mặt hàng bị bỏ chọn
         Debug.Log("Mặt hàng đã bị bỏ chọn!");
     }
 }

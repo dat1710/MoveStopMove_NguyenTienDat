@@ -116,13 +116,17 @@ public class Character : GameUnit
                 if (this.CompareTag(Cache.CACHE_BOT))
                 {
                     GetComponent<NavMeshAgent>().enabled = false;
+                    if (bullet.shooter.CompareTag(Cache.CACHE_PLAYER))
+                    {
+                        GameManager.instance.AddCoint(5);
+                    }
                 }
                 if (this.CompareTag(Cache.CACHE_PLAYER))
                 {
                     canvasDead.gameObject.SetActive(true);
                 }
                 ChangeAnim(Cache.CACHE_ANIM_Dead);
-                Invoke("Disappear", 0.8f);
+                Invoke("Disappear", 0.6f);
             }
         }
     }
